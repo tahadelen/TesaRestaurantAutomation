@@ -18,7 +18,6 @@ namespace TESA_Res_v0
 
         private void customers_menu_close_Click(object sender, EventArgs e)
         {   
-            Program.Form_Main.Show();
             Program.Form_Customers.Hide();
         }
     }

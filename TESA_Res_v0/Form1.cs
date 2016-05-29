@@ -83,23 +83,28 @@ namespace TESA_Res_v0
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            
+
             string enteredPass = enterPass.Text;
             tesaresdbEntities context = new tesaresdbEntities();
             IQueryable<UserTable> user = from a in context.UserTable
-                where a.UserPass == enteredPass
-                select a;
+                                         where a.UserPass == enteredPass
+                                         select a;
             if (user.Any())
             {
-                Program.Form_Main.Show();
-                Program.Form_Login.Hide();
+                UserTable userA = user.First();
+                CommonVars common = CommonVars.Instance;
+                common.Userid = userA.UserId;
+                common.Username = userA.UserName;
+                Form form_main = new Form2();
+                form_main.Show();
+                this.Hide();
             }
             else
             {
                 MessageBox.Show("Hata", "Yanlış şifre", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            
+
         }
-        
+
     }
 }

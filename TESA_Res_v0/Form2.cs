@@ -14,10 +14,12 @@ namespace TESA_Res_v0
         public Form2()
         {
             InitializeComponent();
+            toolStripUserName.Text = CommonVars.Instance.Username;
         }
 
         private void exitProgram_Click(object sender, EventArgs e)
         {
+#if AAA
             DialogResult dialogResult = TopMostMessageBox.Show(
     "Programı kapatmak istediğinize emin misiniz?",
     "Programı Kapat", MessageBoxButtons.YesNo);
@@ -30,12 +32,15 @@ namespace TESA_Res_v0
             {
 
             }
+#endif
+            Application.Exit();
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            Program.Form_Tables.Show();
-            Program.Form_Main.Hide();
+            Form form_tables = new Form3();
+            form_tables.Show();
+            this.Close();
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
@@ -65,6 +70,15 @@ namespace TESA_Res_v0
         private void toolStrip1_ItemClicked_1(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void toolStripButton10_Click(object sender, EventArgs e)
+        {
+            Form form_login = new Form1();
+            CommonVars.Instance.Userid = -1;
+            CommonVars.Instance.Username = "";
+            form_login.Show();
+            this.Close();
         }
     }
 }

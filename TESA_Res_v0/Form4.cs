@@ -30,7 +30,7 @@ namespace TESA_Res_v0
 
             /*fill orders*/
             var oList = (from a in context.OrderTable
-                         where a.TableId == 1 && !(a.Dlt)
+                         where a.TableId == CommonVars.Instance.Tableid && !(a.Dlt)
                          join b in context.ProductTable on a.ProductId equals b.ProductId
                          orderby a.OrderId ascending
                          select new { ProductName = b.ProductName, Number = a.Number, Cost = a.Cost, Price = b.ProCost }).ToList();
@@ -144,8 +144,9 @@ namespace TESA_Res_v0
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Program.Form_Tables.Show();
-            //Program.Form_Orders.Hide();
+            Form form_tables = new Form3();
+            form_tables.Show();
+            this.Close();
         }
 
         private void btn_addToOrder_Click(object sender, EventArgs e)
@@ -168,9 +169,9 @@ namespace TESA_Res_v0
 
                 /* database process*/
                 OrderTable order = new OrderTable();
-                order.TableId = 1;
+                order.TableId = CommonVars.Instance.Tableid;
                 order.ProductId = int.Parse(selectedItem.Tag.ToString().Split('*')[0]);
-                order.UserId = 1;
+                order.UserId = CommonVars.Instance.Userid;
                 order.Number = a;
                 order.Cost = calc;
                 order.Time = DateTime.Now;
@@ -199,7 +200,7 @@ namespace TESA_Res_v0
         {
             tesaresdbEntities dbe = new tesaresdbEntities();
             var dataList = (from a in dbe.OrderTable
-                        where a.TableId == 1 && !(a.Dlt)
+                        where a.TableId == CommonVars.Instance.Tableid && !(a.Dlt)
                         orderby a.OrderId ascending
                         select a).ToList();
 
@@ -249,11 +250,11 @@ namespace TESA_Res_v0
         {
             tesaresdbEntities dbe = new tesaresdbEntities();
             var dataList = (from a in dbe.OrderTable
-                            where a.TableId == 1
+                            where a.TableId == CommonVars.Instance.Tableid
                             orderby a.OrderId ascending
                             select a).ToList();
             var oList = (from a in dbe.OrderTable
-                         where a.TableId == 1
+                         where a.TableId == CommonVars.Instance.Tableid
                          join b in dbe.ProductTable on a.ProductId equals b.ProductId
                          orderby a.OrderId ascending
                          select new { ProductName = b.ProductName, Number = a.Number, Cost = a.Cost, Price = b.ProCost }).ToList();
