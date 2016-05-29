@@ -11,8 +11,9 @@ namespace TESA_Res_v0
 {
     public partial class Form3 : Form
     {
-        public int userIdValue = 1;
-        public int tableIdValue = 1;
+        public int pageNumber = 0;
+        public int totalTable;
+        public int totalPage;
         public tesaresdbEntities dbe = new tesaresdbEntities();
         public int selectedPaymentType = -1;
         public List<TableTable> listTableNames;
@@ -22,37 +23,92 @@ namespace TESA_Res_v0
         public const int height = 100;
         public const int space = 50;
 
-        Button[,] btn = new Button[B_ROW, B_COL];
+        Button[] btn;
 
         public Form3()
         {
             InitializeComponent();
-            fillTableNames();
-            for (int i = 0; i < B_ROW; ++i)
+
+            fillTableNames(B_ROW * B_COL, -1);
+
+            createTableButtons();
+
+            updateTableButtons();
+            pageChecker();
+        }
+
+        void createTableButtons()
+        {
+            btn = new Button[totalTable];
+            for (int p = 0; p < totalPage + 1; ++p)
             {
-                for (int j = 0; j < B_COL; ++j)
+                for (int i = 0; i < B_ROW; ++i)
                 {
-                    btn[i, j] = new Button();
-                    btn[i, j].SetBounds(width * j + space, height * i + (space / 2), width, height);
-                    int elementIndex = i * B_COL + j;
-                    btn[i, j].Text = listTableNames.ElementAt(elementIndex).TableName;
-                    btn[i, j].Font = new Font("Microsoft Sans Serif", 15);
-                    btn[i, j].Click += (s, e) => {
-                        CommonVars.Instance.Tableid = listTableNames.ElementAt(elementIndex).TableId;
-                        Form form_orders = new Form4();
-                        form_orders.Show();
-                        this.Close();
-                    };
-                    Controls.Add(btn[i, j]);
+                    for (int j = 0; j < B_COL; ++j)
+                    {
+                        int elementIndex = i * B_COL + j + p * (B_ROW * B_COL);
+                        int checkRC = elementIndex - p * (B_ROW * B_COL);
+                        
+                        if (elementIndex < totalTable)
+                        {
+                            btn[elementIndex] = new Button();
+                            btn[elementIndex].SetBounds(width * j + space, height * i + (space / 2), width, height);
+                            btn[elementIndex].Hide();
+                            btn[elementIndex].Text = listTableNames.ElementAt(elementIndex).TableName;
+                            btn[elementIndex].Font = new Font("Microsoft Sans Serif", 15);
+                            btn[elementIndex].Click += (s, e) =>
+                            {
+                                CommonVars.Instance.Tableid = listTableNames.ElementAt(checkRC).TableId;
+                                Form form_orders = new Form4();
+                                form_orders.Show();
+                                this.Close();
+                            };
+                            Controls.Add(btn[elementIndex]);
+                        }
+                    }
                 }
             }
         }
 
-        void fillTableNames()
+        void updateTableButtons()
         {
-            listTableNames = (from a in dbe.TableTable
-                                orderby a.TableId ascending
-                                select a).ToList();
+            fillTableNames(B_ROW * B_COL, pageNumber);
+
+            int btnCounter = listTableNames.Count<TableTable>();
+            foreach (Button bt in btn)
+                bt.Hide();
+
+            for (int i = 0; i < B_ROW; ++i)
+            {
+                for (int j = 0; j < B_COL; ++j)
+                {
+                    int elementIndex = i * B_COL + j + pageNumber * (B_ROW * B_COL);
+                    int checkRC = elementIndex - pageNumber * (B_ROW * B_COL);
+                    if (checkRC < btnCounter)
+                    {
+                        btn[elementIndex].Show();
+                    }
+                }
+            }
+        }
+
+        void fillTableNames(int numberOfObjectsPerPage, int pageNumber)
+        {
+            var query = (from a in dbe.TableTable
+                         orderby a.TableId ascending
+                         select a);
+            totalTable = query.Count();
+            totalPage = query.Count() / numberOfObjectsPerPage;
+
+            if (pageNumber > -1)
+            {
+                listTableNames = query.Skip(numberOfObjectsPerPage * pageNumber)
+                                    .Take(numberOfObjectsPerPage)
+                        .ToList();
+            }else
+            {
+                listTableNames = query.ToList();
+            }
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -65,6 +121,48 @@ namespace TESA_Res_v0
             Form form_main = new Form2();
             form_main.Show();
             this.Close();
+        }
+
+        private void btnNextTables_Click(object sender, EventArgs e)
+        {
+            if (pageNumber < totalPage)
+            {
+                ++pageNumber;
+                pageChecker();
+                updateTableButtons();
+            }
+        }
+
+        private void btnPrevTables_Click(object sender, EventArgs e)
+        {
+            if (pageNumber > 0)
+            {
+                --pageNumber;
+                pageChecker();
+                updateTableButtons();
+            }
+
+        }
+
+        private void pageChecker()
+        {
+            if (pageNumber > 0)
+            {
+                btnPrevTables.Enabled = true;
+            }
+            else
+            {
+                btnPrevTables.Enabled = false;
+            }
+
+            if (pageNumber < totalPage)
+            {
+                btnNextTables.Enabled = true;
+            }
+            else
+            {
+                btnNextTables.Enabled = false;
+            }
         }
     }
 }
