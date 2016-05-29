@@ -13,14 +13,14 @@ namespace TESA_Res_v0
 {
     public partial class Form5 : Form
     {
-        public int userIdValue = 1;
-        public int tableIdValue = 1;
+        public int userIdValue = CommonVars.Instance.Userid;
+        public int tableIdValue = CommonVars.Instance.Tableid;
         public tesaresdbEntities dbe = new tesaresdbEntities();
         public int selectedPaymentType = -1;
         public List<PaymentTypeTable> listPaymentTypes;
         public const int B_ROW = 2;
         public const int B_COL = 4;
-        public const int width = 300;
+        public const int width = 200;
         public const int height = 200;
         public const int space = 100;
 
@@ -68,7 +68,12 @@ namespace TESA_Res_v0
         */
         private void btnPayment_Click(object sender, EventArgs e)
         {
-            
+            if(selectedPaymentType<0)
+            {
+                MessageBox.Show("Ödeme Türü Seçiniz!", "Ödeme Hatası", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             List<int> orderIds = new List<int>();
             double totalCost = 0;
 
@@ -129,7 +134,8 @@ namespace TESA_Res_v0
             }
 
             dbe.SaveChanges();
-
+            Form tables = new Form3();
+            tables.Show();
             this.Close();
         }
     }

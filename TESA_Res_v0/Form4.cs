@@ -292,7 +292,8 @@ namespace TESA_Res_v0
         private void btn_get_payment_Click(object sender, EventArgs e)
         {
             Form pay = new Form5();
-            pay.ShowDialog();
+            pay.Show();
+            this.Close();
         }
     }
 }
