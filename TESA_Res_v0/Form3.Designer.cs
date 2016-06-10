@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.tableConcat = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.btnNextTables = new System.Windows.Forms.Button();
             this.btnPrevTables = new System.Windows.Forms.Button();
@@ -47,14 +47,15 @@
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
-            // button11
+            // tableConcat
             // 
-            this.button11.Location = new System.Drawing.Point(289, 635);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(111, 77);
-            this.button11.TabIndex = 10;
-            this.button11.Text = "Masa Birleştir";
-            this.button11.UseVisualStyleBackColor = true;
+            this.tableConcat.Location = new System.Drawing.Point(289, 635);
+            this.tableConcat.Name = "tableConcat";
+            this.tableConcat.Size = new System.Drawing.Size(111, 77);
+            this.tableConcat.TabIndex = 10;
+            this.tableConcat.Text = "Masa Birleştir";
+            this.tableConcat.UseVisualStyleBackColor = true;
+            this.tableConcat.Click += new System.EventHandler(this.tableConcat_Click);
             // 
             // button12
             // 
@@ -118,7 +119,7 @@
             this.Controls.Add(this.btnPrevTables);
             this.Controls.Add(this.btnNextTables);
             this.Controls.Add(this.button12);
-            this.Controls.Add(this.button11);
+            this.Controls.Add(this.tableConcat);
             this.Controls.Add(this.button10);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form3";
@@ -132,7 +133,7 @@
 
         #endregion
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button tableConcat;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button btnNextTables;
         private System.Windows.Forms.Button btnPrevTables;

@@ -164,5 +164,11 @@ namespace TESA_Res_v0
                 btnNextTables.Enabled = false;
             }
         }
+
+        private void tableConcat_Click(object sender, EventArgs e)
+        {
+            Form tCo = new Form_TableConcat();
+            tCo.ShowDialog();
+        }
     }
 }

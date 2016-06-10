@@ -16,8 +16,9 @@
         <EntityTypeShape EntityType="tesaresdbModel.TableTable" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="tesaresdbModel.TransactionTable" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="tesaresdbModel.UserTable" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="tesaresdbModel.IngredientsTable" Width="1.5" PointX="9.375" PointY="0.75" />
         <EntityTypeShape EntityType="tesaresdbModel.RecipeTable" Width="1.5" PointX="9.375" PointY="3.75" />
+        <EntityTypeShape EntityType="tesaresdbModel.ItemTable" Width="1.5" PointX="3.375" PointY="9.75" />
+        <EntityTypeShape EntityType="tesaresdbModel.IngredientsTable" Width="1.5" PointX="9.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

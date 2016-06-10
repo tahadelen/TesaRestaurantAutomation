@@ -12,10 +12,12 @@ namespace TESA_Res_v0
     using System;
     using System.Collections.Generic;
     
-    public partial class IngredientsTable
+    public partial class ItemTable
     {
-        public int IngId { get; set; }
         public int ItemId { get; set; }
-        public double IngQuantity { get; set; }
+        public string ItemName { get; set; }
+        public string ItemUnit { get; set; }
+        public double ItemWarn { get; set; }
+        public double ItemExists { get; set; }
     }
 }

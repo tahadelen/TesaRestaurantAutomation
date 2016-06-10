@@ -32,9 +32,18 @@
             <PropertyRef Name="IngId" />
           </Key>
           <Property Name="IngId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IngName" Type="text" Nullable="false" />
+          <Property Name="ItemId" Type="int" Nullable="false" />
           <Property Name="IngQuantity" Type="float" Nullable="false" />
-          <Property Name="IngUnit" Type="nchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemTable">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemName" Type="text" Nullable="false" />
+          <Property Name="ItemUnit" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="ItemWarn" Type="float" Nullable="false" />
+          <Property Name="ItemExists" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="OrderTable">
           <Key>
@@ -127,6 +136,7 @@
           <EntitySet Name="CategoryTable" EntityType="Self.CategoryTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FreqUsedTable" EntityType="Self.FreqUsedTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="IngredientsTable" EntityType="Self.IngredientsTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemTable" EntityType="Self.ItemTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderTable" EntityType="Self.OrderTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PaymentTable" EntityType="Self.PaymentTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PaymentTypeTable" EntityType="Self.PaymentTypeTable" Schema="dbo" store:Type="Tables" />
@@ -253,18 +263,10 @@
           <EntitySet Name="TableTable" EntityType="Self.TableTable" />
           <EntitySet Name="TransactionTable" EntityType="Self.TransactionTable" />
           <EntitySet Name="UserTable" EntityType="Self.UserTable" />
-          <EntitySet Name="IngredientsTable" EntityType="tesaresdbModel.IngredientsTable" />
           <EntitySet Name="RecipeTable" EntityType="tesaresdbModel.RecipeTable" />
+          <EntitySet Name="ItemTable" EntityType="tesaresdbModel.ItemTable" />
+          <EntitySet Name="IngredientsTable" EntityType="tesaresdbModel.IngredientsTable" />
         </EntityContainer>
-        <EntityType Name="IngredientsTable">
-          <Key>
-            <PropertyRef Name="IngId" />
-          </Key>
-          <Property Name="IngId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IngName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="IngQuantity" Type="Double" Nullable="false" />
-          <Property Name="IngUnit" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
-        </EntityType>
         <EntityType Name="RecipeTable">
           <Key>
             <PropertyRef Name="RecId" />
@@ -272,6 +274,24 @@
           <Property Name="RecId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="RecName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="RecIngredients" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ItemTable">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ItemUnit" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ItemWarn" Type="Double" Nullable="false" />
+          <Property Name="ItemExists" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IngredientsTable">
+          <Key>
+            <PropertyRef Name="IngId" />
+          </Key>
+          <Property Name="IngId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemId" Type="Int32" Nullable="false" />
+          <Property Name="IngQuantity" Type="Double" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -390,22 +410,32 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="IngredientsTable">
-            <EntityTypeMapping TypeName="tesaresdbModel.IngredientsTable">
-              <MappingFragment StoreEntitySet="IngredientsTable">
-                <ScalarProperty Name="IngUnit" ColumnName="IngUnit" />
-                <ScalarProperty Name="IngQuantity" ColumnName="IngQuantity" />
-                <ScalarProperty Name="IngName" ColumnName="IngName" />
-                <ScalarProperty Name="IngId" ColumnName="IngId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="RecipeTable">
             <EntityTypeMapping TypeName="tesaresdbModel.RecipeTable">
               <MappingFragment StoreEntitySet="RecipeTable">
                 <ScalarProperty Name="RecIngredients" ColumnName="RecIngredients" />
                 <ScalarProperty Name="RecName" ColumnName="RecName" />
                 <ScalarProperty Name="RecId" ColumnName="RecId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemTable">
+            <EntityTypeMapping TypeName="tesaresdbModel.ItemTable">
+              <MappingFragment StoreEntitySet="ItemTable">
+                <ScalarProperty Name="ItemExists" ColumnName="ItemExists" />
+                <ScalarProperty Name="ItemWarn" ColumnName="ItemWarn" />
+                <ScalarProperty Name="ItemUnit" ColumnName="ItemUnit" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IngredientsTable">
+            <EntityTypeMapping TypeName="tesaresdbModel.IngredientsTable">
+              <MappingFragment StoreEntitySet="IngredientsTable">
+                <ScalarProperty Name="IngQuantity" ColumnName="IngQuantity" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="IngId" ColumnName="IngId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

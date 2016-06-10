@@ -59,6 +59,8 @@ namespace TESA_Res_v0
 
         private void btnPayCancel_Click(object sender, EventArgs e)
         {
+            Form order = new Form4();
+            order.Show();
             this.Close();
         }
 

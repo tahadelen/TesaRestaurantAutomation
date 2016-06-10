@@ -80,5 +80,19 @@ namespace TESA_Res_v0
             form_login.Show();
             this.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form form_add_item = new Form_Items();
+            form_add_item.Show();
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form form_food = new Form_Food();
+            form_food.Show();
+            this.Close();
+        }
     }
 }

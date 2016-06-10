@@ -36,7 +36,8 @@ namespace TESA_Res_v0
         public DbSet<TableTable> TableTable { get; set; }
         public DbSet<TransactionTable> TransactionTable { get; set; }
         public DbSet<UserTable> UserTable { get; set; }
-        public DbSet<IngredientsTable> IngredientsTable { get; set; }
         public DbSet<RecipeTable> RecipeTable { get; set; }
+        public DbSet<ItemTable> ItemTable { get; set; }
+        public DbSet<IngredientsTable> IngredientsTable { get; set; }
     }
 }
