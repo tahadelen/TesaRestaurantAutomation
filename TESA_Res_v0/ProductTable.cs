@@ -16,8 +16,9 @@ namespace TESA_Res_v0
     {
         public int ProductId { get; set; }
         public string ProductName { get; set; }
-        public string ProductDetails { get; set; }
         public int CatId { get; set; }
+        public string ProductDetails { get; set; }
         public double ProCost { get; set; }
+        public int RecipeId { get; set; }
     }
 }

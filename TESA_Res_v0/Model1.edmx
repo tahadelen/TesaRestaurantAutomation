@@ -80,10 +80,11 @@
             <PropertyRef Name="ProductId" />
           </Key>
           <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ProductName" Type="ntext" Nullable="false" />
-          <Property Name="ProductDetails" Type="ntext" Nullable="false" />
+          <Property Name="ProductName" Type="text" Nullable="false" />
           <Property Name="CatId" Type="int" Nullable="false" />
+          <Property Name="ProductDetails" Type="text" Nullable="false" />
           <Property Name="ProCost" Type="float" Nullable="false" />
+          <Property Name="RecipeId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="RecipeTable">
           <Key>
@@ -159,13 +160,6 @@
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="AuthP" Type="String" MaxLength="25" FixedLength="true" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityType Name="CategoryTable">
-          <Key>
-            <PropertyRef Name="CatId" />
-          </Key>
-          <Property Name="CatId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CatName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-        </EntityType>
         <EntityType Name="FreqUsedTable">
           <Key>
             <PropertyRef Name="FreqId" />
@@ -202,16 +196,6 @@
           </Key>
           <Property Name="PTTId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PTTName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ProductTable">
-          <Key>
-            <PropertyRef Name="ProductId" />
-          </Key>
-          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ProductDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CatId" Type="Int32" Nullable="false" />
-          <Property Name="ProCost" Type="Double" Nullable="false" />
         </EntityType>
         <EntityType Name="StateTable">
           <Key>
@@ -253,12 +237,10 @@
         </EntityType>
         <EntityContainer Name="tesaresdbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AuthorizationTable" EntityType="Self.AuthorizationTable" />
-          <EntitySet Name="CategoryTable" EntityType="Self.CategoryTable" />
           <EntitySet Name="FreqUsedTable" EntityType="Self.FreqUsedTable" />
           <EntitySet Name="OrderTable" EntityType="Self.OrderTable" />
           <EntitySet Name="PaymentTable" EntityType="Self.PaymentTable" />
           <EntitySet Name="PaymentTypeTable" EntityType="Self.PaymentTypeTable" />
-          <EntitySet Name="ProductTable" EntityType="Self.ProductTable" />
           <EntitySet Name="StateTable" EntityType="Self.StateTable" />
           <EntitySet Name="TableTable" EntityType="Self.TableTable" />
           <EntitySet Name="TransactionTable" EntityType="Self.TransactionTable" />
@@ -266,6 +248,8 @@
           <EntitySet Name="RecipeTable" EntityType="tesaresdbModel.RecipeTable" />
           <EntitySet Name="ItemTable" EntityType="tesaresdbModel.ItemTable" />
           <EntitySet Name="IngredientsTable" EntityType="tesaresdbModel.IngredientsTable" />
+          <EntitySet Name="ProductTable" EntityType="tesaresdbModel.ProductTable" />
+          <EntitySet Name="CategoryTable" EntityType="tesaresdbModel.CategoryTable" />
         </EntityContainer>
         <EntityType Name="RecipeTable">
           <Key>
@@ -293,6 +277,24 @@
           <Property Name="ItemId" Type="Int32" Nullable="false" />
           <Property Name="IngQuantity" Type="Double" Nullable="false" />
         </EntityType>
+        <EntityType Name="ProductTable">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CatId" Type="Int32" Nullable="false" />
+          <Property Name="ProductDetails" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ProCost" Type="Double" Nullable="false" />
+          <Property Name="RecipeId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CategoryTable">
+          <Key>
+            <PropertyRef Name="CatId" />
+          </Key>
+          <Property Name="CatId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CatName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -305,14 +307,6 @@
                 <ScalarProperty Name="AuthId" ColumnName="AuthId" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="AuthP" ColumnName="AuthP" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CategoryTable">
-            <EntityTypeMapping TypeName="tesaresdbModel.CategoryTable">
-              <MappingFragment StoreEntitySet="CategoryTable">
-                <ScalarProperty Name="CatId" ColumnName="CatId" />
-                <ScalarProperty Name="CatName" ColumnName="CatName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -354,17 +348,6 @@
               <MappingFragment StoreEntitySet="PaymentTypeTable">
                 <ScalarProperty Name="PTTId" ColumnName="PTTId" />
                 <ScalarProperty Name="PTTName" ColumnName="PTTName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ProductTable">
-            <EntityTypeMapping TypeName="tesaresdbModel.ProductTable">
-              <MappingFragment StoreEntitySet="ProductTable">
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-                <ScalarProperty Name="ProductDetails" ColumnName="ProductDetails" />
-                <ScalarProperty Name="CatId" ColumnName="CatId" />
-                <ScalarProperty Name="ProCost" ColumnName="ProCost" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -436,6 +419,26 @@
                 <ScalarProperty Name="IngQuantity" ColumnName="IngQuantity" />
                 <ScalarProperty Name="ItemId" ColumnName="ItemId" />
                 <ScalarProperty Name="IngId" ColumnName="IngId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductTable">
+            <EntityTypeMapping TypeName="tesaresdbModel.ProductTable">
+              <MappingFragment StoreEntitySet="ProductTable">
+                <ScalarProperty Name="RecipeId" ColumnName="RecipeId" />
+                <ScalarProperty Name="ProCost" ColumnName="ProCost" />
+                <ScalarProperty Name="ProductDetails" ColumnName="ProductDetails" />
+                <ScalarProperty Name="CatId" ColumnName="CatId" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryTable">
+            <EntityTypeMapping TypeName="tesaresdbModel.CategoryTable">
+              <MappingFragment StoreEntitySet="CategoryTable">
+                <ScalarProperty Name="CatName" ColumnName="CatName" />
+                <ScalarProperty Name="CatId" ColumnName="CatId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

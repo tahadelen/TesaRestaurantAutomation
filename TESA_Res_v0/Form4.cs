@@ -20,10 +20,6 @@ namespace TESA_Res_v0
 
         private void Form4_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'tesaresdbDataSet.CategoryTable' table. You can move, or remove it, as needed.
-            this.categoryTableTableAdapter.Fill(this.tesaresdbDataSet.CategoryTable);
-
-
             tesaresdbEntities context = new tesaresdbEntities();
 
             lbl_order_info.Text = "";

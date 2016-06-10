@@ -94,5 +94,12 @@ namespace TESA_Res_v0
             form_food.Show();
             this.Close();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form form_add_product = new Form_Add_Product();
+            form_add_product.Show();
+            this.Close();
+        }
     }
 }

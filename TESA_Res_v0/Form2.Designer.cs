@@ -612,6 +612,7 @@
             this.button3.Text = "Ürün Ekle";
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -853,7 +854,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(1685, 670);
+            this.tabPage2.Size = new System.Drawing.Size(1284, 670);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Paket Servis Satışları";
             this.tabPage2.UseVisualStyleBackColor = true;
