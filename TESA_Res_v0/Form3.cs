@@ -80,6 +80,7 @@ namespace TESA_Res_v0
                            orderby fId.FloorId ascending
                            select fId).First().FloorId;
             }
+            lbl_floor.Text = (from fl in dbe.FloorTable where fl.FloorId == floor_id select fl).First().FloorName;
             fillTableNames(floor_id, B_ROW * B_COL, -1);
             createTableButtons();
             updateTableButtons();
