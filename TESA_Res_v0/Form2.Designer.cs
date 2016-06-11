@@ -30,11 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.userTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -52,12 +51,12 @@
             this.btn_customers = new System.Windows.Forms.Button();
             this.btn_takeaway_service = new System.Windows.Forms.Button();
             this.btn_tables = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_brand = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_user_l = new System.Windows.Forms.Label();
             this.lbl_user = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.userTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableTableBindingSource)).BeginInit();
@@ -108,7 +107,7 @@
             // 
             // btn_stock
             // 
-            this.btn_stock.Location = new System.Drawing.Point(332, 364);
+            this.btn_stock.Location = new System.Drawing.Point(332, 489);
             this.btn_stock.Name = "btn_stock";
             this.btn_stock.Size = new System.Drawing.Size(160, 100);
             this.btn_stock.TabIndex = 23;
@@ -117,7 +116,7 @@
             // 
             // btn_cashreg
             // 
-            this.btn_cashreg.Location = new System.Drawing.Point(169, 364);
+            this.btn_cashreg.Location = new System.Drawing.Point(169, 489);
             this.btn_cashreg.Name = "btn_cashreg";
             this.btn_cashreg.Size = new System.Drawing.Size(160, 100);
             this.btn_cashreg.TabIndex = 22;
@@ -126,7 +125,7 @@
             // 
             // btn_caller_list
             // 
-            this.btn_caller_list.Location = new System.Drawing.Point(495, 364);
+            this.btn_caller_list.Location = new System.Drawing.Point(495, 489);
             this.btn_caller_list.Name = "btn_caller_list";
             this.btn_caller_list.Size = new System.Drawing.Size(160, 100);
             this.btn_caller_list.TabIndex = 21;
@@ -135,7 +134,7 @@
             // 
             // btn_reports
             // 
-            this.btn_reports.Location = new System.Drawing.Point(6, 364);
+            this.btn_reports.Location = new System.Drawing.Point(6, 489);
             this.btn_reports.Name = "btn_reports";
             this.btn_reports.Size = new System.Drawing.Size(160, 100);
             this.btn_reports.TabIndex = 20;
@@ -189,83 +188,75 @@
             this.btn_tables.UseVisualStyleBackColor = true;
             this.btn_tables.Click += new System.EventHandler(this.btn_tables_Click_1);
             // 
-            // label1
+            // lbl_brand
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(300, 204);
-            this.label1.MaximumSize = new System.Drawing.Size(250, 150);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(223, 68);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "TESA Restoran Otomasyon";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_brand.AutoSize = true;
+            this.lbl_brand.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_brand.Location = new System.Drawing.Point(297, 259);
+            this.lbl_brand.MaximumSize = new System.Drawing.Size(250, 150);
+            this.lbl_brand.Name = "lbl_brand";
+            this.lbl_brand.Size = new System.Drawing.Size(223, 68);
+            this.lbl_brand.TabIndex = 27;
+            this.lbl_brand.Text = "TESA Restoran Otomasyon";
+            this.lbl_brand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dataGridView1
             // 
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3});
-            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle45.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle45.Font = new System.Drawing.Font("Microsoft Sans Serif", 3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle45.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle45;
-            this.dataGridView1.Location = new System.Drawing.Point(661, 30);
+            this.dataGridView1.Location = new System.Drawing.Point(689, 30);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(351, 434);
+            this.dataGridView1.Size = new System.Drawing.Size(323, 559);
             this.dataGridView1.TabIndex = 28;
             // 
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle6;
             this.Column1.HeaderText = "Gelen Arama";
             this.Column1.Name = "Column1";
-            this.Column1.Width = 150;
+            this.Column1.Width = 136;
             // 
             // Column2
             // 
             this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle7;
             this.Column2.HeaderText = "Ad";
             this.Column2.Name = "Column2";
-            this.Column2.Width = 63;
+            this.Column2.Width = 58;
             // 
             // Column3
             // 
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle8;
             this.Column3.HeaderText = "Soyad";
             this.Column3.Name = "Column3";
-            this.Column3.Width = 92;
+            this.Column3.Width = 84;
             // 
-            // label2
+            // lbl_user_l
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(190, 680);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 32);
-            this.label2.TabIndex = 29;
-            this.label2.Text = "Kullanıcı :";
+            this.lbl_user_l.AutoSize = true;
+            this.lbl_user_l.Location = new System.Drawing.Point(190, 680);
+            this.lbl_user_l.Name = "lbl_user_l";
+            this.lbl_user_l.Size = new System.Drawing.Size(139, 32);
+            this.lbl_user_l.TabIndex = 29;
+            this.lbl_user_l.Text = "Kullanıcı :";
             // 
             // lbl_user
             // 
@@ -283,9 +274,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.lbl_user);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbl_user_l);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl_brand);
             this.Controls.Add(this.btn_logout);
             this.Controls.Add(this.btn_exit_program);
             this.Controls.Add(this.btn_settings);
@@ -333,12 +324,12 @@
         private System.Windows.Forms.Button btn_customers;
         private System.Windows.Forms.Button btn_takeaway_service;
         private System.Windows.Forms.Button btn_tables;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_brand;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_user_l;
         private System.Windows.Forms.Label lbl_user;
     }
 }

@@ -19,9 +19,9 @@ namespace TESA_Res_v0
         public List<TableTable> listTableNames;
         public const int B_ROW = 4;
         public const int B_COL = 5;
-        public const int width = 150;
-        public const int height = 100;
-        public const int space = 50;
+        public const int width = 160;
+        public const int height = 110;
+        public const int space = 20;
 
         Button[] btn;
 
@@ -52,8 +52,9 @@ namespace TESA_Res_v0
                         if (elementIndex < totalTable)
                         {
                             btn[elementIndex] = new Button();
-                            btn[elementIndex].SetBounds(width * j + space, height * i + (space / 2), width, height);
+                            btn[elementIndex].SetBounds(width * j + (space / 2), height * i + (space / 2), width, height);
                             btn[elementIndex].Hide();
+                            btn[elementIndex].BackColor = SystemColors.Control;
                             btn[elementIndex].Text = listTableNames.ElementAt(elementIndex).TableName;
                             btn[elementIndex].Font = new Font("Microsoft Sans Serif", 15);
                             btn[elementIndex].Click += (s, e) =>
@@ -63,7 +64,7 @@ namespace TESA_Res_v0
                                 form_orders.Show();
                                 this.Close();
                             };
-                            Controls.Add(btn[elementIndex]);
+                            gb_tables.Controls.Add(btn[elementIndex]);
                         }
                     }
                 }
@@ -169,6 +170,15 @@ namespace TESA_Res_v0
         {
             Form tCo = new Form_TableConcat();
             tCo.ShowDialog();
+        }
+
+        private void btn_logout_Click(object sender, EventArgs e)
+        {
+            Form form_login = new Form1();
+            CommonVars.Instance.Userid = -1;
+            CommonVars.Instance.Username = "";
+            form_login.Show();
+            this.Close();
         }
     }
 }
