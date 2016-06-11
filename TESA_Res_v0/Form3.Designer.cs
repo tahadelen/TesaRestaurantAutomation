@@ -37,12 +37,10 @@
             this.userName = new System.Windows.Forms.Label();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_table_separate = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_floor = new System.Windows.Forms.Label();
             this.gb_tables = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button10
@@ -142,14 +140,14 @@
             this.btn_table_separate.Text = "Masa Ayır";
             this.btn_table_separate.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // lbl_floor
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(138, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 32);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Bahçe";
+            this.lbl_floor.AutoSize = true;
+            this.lbl_floor.Location = new System.Drawing.Point(138, 9);
+            this.lbl_floor.Name = "lbl_floor";
+            this.lbl_floor.Size = new System.Drawing.Size(96, 32);
+            this.lbl_floor.TabIndex = 18;
+            this.lbl_floor.Text = "Bahçe";
             // 
             // gb_tables
             // 
@@ -176,29 +174,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(846, 51);
+            this.label4.Location = new System.Drawing.Point(854, 51);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(137, 32);
             this.label4.TabIndex = 21;
             this.label4.Text = "Konumlar";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(852, 97);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(131, 46);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(852, 150);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(131, 42);
-            this.button2.TabIndex = 23;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // Form3
             // 
@@ -206,12 +186,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1024, 768);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.gb_tables);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbl_floor);
             this.Controls.Add(this.btn_table_separate);
             this.Controls.Add(this.btn_logout);
             this.Controls.Add(this.userName);
@@ -243,11 +221,9 @@
         private System.Windows.Forms.Label userName;
         private System.Windows.Forms.Button btn_logout;
         private System.Windows.Forms.Button btn_table_separate;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_floor;
         private System.Windows.Forms.GroupBox gb_tables;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
     }
 }

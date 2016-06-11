@@ -31,7 +31,6 @@ namespace TESA_Res_v0
         public DbSet<PaymentTable> PaymentTable { get; set; }
         public DbSet<PaymentTypeTable> PaymentTypeTable { get; set; }
         public DbSet<StateTable> StateTable { get; set; }
-        public DbSet<TableTable> TableTable { get; set; }
         public DbSet<TransactionTable> TransactionTable { get; set; }
         public DbSet<UserTable> UserTable { get; set; }
         public DbSet<RecipeTable> RecipeTable { get; set; }
@@ -39,5 +38,7 @@ namespace TESA_Res_v0
         public DbSet<IngredientsTable> IngredientsTable { get; set; }
         public DbSet<ProductTable> ProductTable { get; set; }
         public DbSet<CategoryTable> CategoryTable { get; set; }
+        public DbSet<FloorTable> FloorTable { get; set; }
+        public DbSet<TableTable> TableTable { get; set; }
     }
 }

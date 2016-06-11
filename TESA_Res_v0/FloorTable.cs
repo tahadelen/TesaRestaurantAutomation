@@ -12,11 +12,9 @@ namespace TESA_Res_v0
     using System;
     using System.Collections.Generic;
     
-    public partial class TableTable
+    public partial class FloorTable
     {
-        public int TableId { get; set; }
-        public string TableName { get; set; }
-        public int StateId { get; set; }
         public int FloorId { get; set; }
+        public string FloorName { get; set; }
     }
 }

@@ -12,27 +12,76 @@ namespace TESA_Res_v0
     public partial class Form3 : Form
     {
         public int pageNumber = 0;
+        private int totalFloor;
         public int totalTable;
         public int totalPage;
+        private int floor_id;
         public tesaresdbEntities dbe = new tesaresdbEntities();
         public int selectedPaymentType = -1;
         public List<TableTable> listTableNames;
+        private List<FloorTable> listFloors;
         public const int B_ROW = 4;
         public const int B_COL = 5;
         public const int width = 160;
         public const int height = 110;
         public const int space = 20;
-
+        private const int FLOOR_X = 860;
+        private const int FLOOR_Y = 100;
+        private const int FLOOR_W = 130;
+        private const int FLOOR_H = 50;
+        private const int FLOOR_S = 10;
         Button[] btn;
+        Button[] btn_floors;
 
         public Form3()
         {
             InitializeComponent();
 
-            fillTableNames(B_ROW * B_COL, -1);
+            refreshButtons();
 
+            totalFloor = dbe.FloorTable.Count();
+            listFloors = (from fl in dbe.FloorTable select fl).ToList();
+            lbl_floor.Text = listFloors.First().FloorName;
+            btn_floors = new Button[totalFloor];
+
+            for(int i=0; i<totalFloor; ++i)
+            {
+                int j = i;
+                btn_floors[i] = new Button();
+                btn_floors[i].SetBounds(FLOOR_X, FLOOR_Y + i*(FLOOR_H+FLOOR_S), FLOOR_W, FLOOR_H);
+                btn_floors[i].BackColor = SystemColors.Control;
+                btn_floors[i].Text = listFloors.ElementAt(i).FloorName;
+                btn_floors[i].Font = new Font("Microsoft Sans Serif", 15);
+                btn_floors[i].Click += (s, e) =>
+                {
+                    floor_id = listFloors.ElementAt(j).FloorId;
+                    refreshButtons(floor_id);
+                };
+                Controls.Add(btn_floors[i]);
+
+            }
+
+        }
+
+        void refreshButtons(int floorId=-1)
+        {
+            if (btn != null)
+            {
+                foreach (Button bt in btn)
+                    bt.Hide();
+                btn = null;
+            }
+            pageNumber = 0;
+
+            floor_id = floorId;
+            if(floorId < 0)
+            {
+                floor_id = (from fId in dbe.FloorTable
+                           orderby fId.FloorId ascending
+                           select fId).First().FloorId;
+            }
+            fillTableNames(floor_id, B_ROW * B_COL, -1);
             createTableButtons();
-
             updateTableButtons();
             pageChecker();
         }
@@ -73,7 +122,7 @@ namespace TESA_Res_v0
 
         void updateTableButtons()
         {
-            fillTableNames(B_ROW * B_COL, pageNumber);
+            fillTableNames(floor_id, B_ROW * B_COL, pageNumber);
 
             int btnCounter = listTableNames.Count<TableTable>();
             foreach (Button bt in btn)
@@ -93,9 +142,10 @@ namespace TESA_Res_v0
             }
         }
 
-        void fillTableNames(int numberOfObjectsPerPage, int pageNumber)
+        void fillTableNames(int floorId, int numberOfObjectsPerPage, int pageNumber)
         {
             var query = (from a in dbe.TableTable
+                         where a.FloorId == floorId
                          orderby a.TableId ascending
                          select a);
             totalTable = query.Count();

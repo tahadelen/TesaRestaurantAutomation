@@ -20,6 +20,13 @@
           <Property Name="CatId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CatName" Type="ntext" Nullable="false" />
         </EntityType>
+        <EntityType Name="FloorTable">
+          <Key>
+            <PropertyRef Name="FloorId" />
+          </Key>
+          <Property Name="FloorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FloorName" Type="text" Nullable="false" />
+        </EntityType>
         <EntityType Name="FreqUsedTable">
           <Key>
             <PropertyRef Name="FreqId" />
@@ -108,6 +115,7 @@
           <Property Name="TableId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TableName" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="StateId" Type="int" Nullable="false" />
+          <Property Name="FloorId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="TransactionTable">
           <Key>
@@ -135,6 +143,7 @@
         <EntityContainer Name="tesaresdbModelStoreContainer">
           <EntitySet Name="AuthorizationTable" EntityType="Self.AuthorizationTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CategoryTable" EntityType="Self.CategoryTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FloorTable" EntityType="Self.FloorTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FreqUsedTable" EntityType="Self.FreqUsedTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="IngredientsTable" EntityType="Self.IngredientsTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ItemTable" EntityType="Self.ItemTable" Schema="dbo" store:Type="Tables" />
@@ -204,14 +213,6 @@
           <Property Name="StateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="StateName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityType Name="TableTable">
-          <Key>
-            <PropertyRef Name="TableId" />
-          </Key>
-          <Property Name="TableId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TableName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="StateId" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="TransactionTable">
           <Key>
             <PropertyRef Name="TransactionId" />
@@ -242,7 +243,6 @@
           <EntitySet Name="PaymentTable" EntityType="Self.PaymentTable" />
           <EntitySet Name="PaymentTypeTable" EntityType="Self.PaymentTypeTable" />
           <EntitySet Name="StateTable" EntityType="Self.StateTable" />
-          <EntitySet Name="TableTable" EntityType="Self.TableTable" />
           <EntitySet Name="TransactionTable" EntityType="Self.TransactionTable" />
           <EntitySet Name="UserTable" EntityType="Self.UserTable" />
           <EntitySet Name="RecipeTable" EntityType="tesaresdbModel.RecipeTable" />
@@ -250,6 +250,8 @@
           <EntitySet Name="IngredientsTable" EntityType="tesaresdbModel.IngredientsTable" />
           <EntitySet Name="ProductTable" EntityType="tesaresdbModel.ProductTable" />
           <EntitySet Name="CategoryTable" EntityType="tesaresdbModel.CategoryTable" />
+          <EntitySet Name="FloorTable" EntityType="tesaresdbModel.FloorTable" />
+          <EntitySet Name="TableTable" EntityType="tesaresdbModel.TableTable" />
         </EntityContainer>
         <EntityType Name="RecipeTable">
           <Key>
@@ -294,6 +296,22 @@
           </Key>
           <Property Name="CatId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CatName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="FloorTable">
+          <Key>
+            <PropertyRef Name="FloorId" />
+          </Key>
+          <Property Name="FloorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FloorName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TableTable">
+          <Key>
+            <PropertyRef Name="TableId" />
+          </Key>
+          <Property Name="TableId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TableName" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="StateId" Type="Int32" Nullable="false" />
+          <Property Name="FloorId" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -356,15 +374,6 @@
               <MappingFragment StoreEntitySet="StateTable">
                 <ScalarProperty Name="StateId" ColumnName="StateId" />
                 <ScalarProperty Name="StateName" ColumnName="StateName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TableTable">
-            <EntityTypeMapping TypeName="tesaresdbModel.TableTable">
-              <MappingFragment StoreEntitySet="TableTable">
-                <ScalarProperty Name="TableId" ColumnName="TableId" />
-                <ScalarProperty Name="TableName" ColumnName="TableName" />
-                <ScalarProperty Name="StateId" ColumnName="StateId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -439,6 +448,24 @@
               <MappingFragment StoreEntitySet="CategoryTable">
                 <ScalarProperty Name="CatName" ColumnName="CatName" />
                 <ScalarProperty Name="CatId" ColumnName="CatId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FloorTable">
+            <EntityTypeMapping TypeName="tesaresdbModel.FloorTable">
+              <MappingFragment StoreEntitySet="FloorTable">
+                <ScalarProperty Name="FloorName" ColumnName="FloorName" />
+                <ScalarProperty Name="FloorId" ColumnName="FloorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TableTable">
+            <EntityTypeMapping TypeName="tesaresdbModel.TableTable">
+              <MappingFragment StoreEntitySet="TableTable">
+                <ScalarProperty Name="FloorId" ColumnName="FloorId" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="TableId" ColumnName="TableId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
