@@ -14,52 +14,10 @@ namespace TESA_Res_v0
         public Form2()
         {
             InitializeComponent();
-            toolStripUserName.Text = CommonVars.Instance.Username;
+            lbl_user.Text = CommonVars.Instance.Username;
         }
 
-        private void exitProgram_Click(object sender, EventArgs e)
-        {
-#if AAA
-            DialogResult dialogResult = TopMostMessageBox.Show(
-    "Programı kapatmak istediğinize emin misiniz?",
-    "Programı Kapat", MessageBoxButtons.YesNo);
-
-            if (dialogResult == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-
-            }
-#endif
-            Application.Exit();
-        }
-
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-            Form form_tables = new Form3();
-            form_tables.Show();
-            this.Close();
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-            cb_dealers.Enabled = true;
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            cb_dealers.Enabled = false;
-        }
-
-        //top_menu_customers
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-           //Program.Form_Tables.Show();
-           //Program.Form_Main.Hide();
-        }
-
+      
         private void Form2_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'tesaresdbDataSet2.UserTable' table. You can move, or remove it, as needed.
@@ -67,20 +25,8 @@ namespace TESA_Res_v0
 
         }
 
-        private void toolStrip1_ItemClicked_1(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void toolStripButton10_Click(object sender, EventArgs e)
-        {
-            Form form_login = new Form1();
-            CommonVars.Instance.Userid = -1;
-            CommonVars.Instance.Username = "";
-            form_login.Show();
-            this.Close();
-        }
-
+      
+       
         private void button1_Click(object sender, EventArgs e)
         {
             Form form_add_item = new Form_Items();
@@ -99,6 +45,42 @@ namespace TESA_Res_v0
         {
             Form form_add_product = new Form_Add_Product();
             form_add_product.Show();
+            this.Close();
+        }
+
+ 
+        private void btn_exit_program_Click(object sender, EventArgs e)
+        {
+#if AAA
+            DialogResult dialogResult = TopMostMessageBox.Show(
+    "Programı kapatmak istediğinize emin misiniz?",
+    "Programı Kapat", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+
+            }
+#endif
+            Application.Exit();
+        }
+
+        private void btn_logout_Click(object sender, EventArgs e)
+        {
+            Form form_login = new Form1();
+            CommonVars.Instance.Userid = -1;
+            CommonVars.Instance.Username = "";
+            form_login.Show();
+            this.Close();
+        }
+
+        private void btn_tables_Click_1(object sender, EventArgs e)
+        {
+            Form form_tables = new Form3();
+            form_tables.Show();
             this.Close();
         }
     }
