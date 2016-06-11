@@ -28,10 +28,11 @@ namespace TESA_Res_v0
         {
             tesaresdbEntities dbe = new tesaresdbEntities();
             ItemTable item = new ItemTable();
-            if (tb_item_name.Text != "" && (radioButton1.Checked || radioButton2.Checked) && tb_stock_warn.Text != "") {
+            if (tb_item_name.Text != "" && (radioButton1.Checked || radioButton2.Checked) && tb_stock_warn.Text != "" 
+                && tb_number.Text != "") {
                 string name = tb_item_name.Text, unit;
                 float stockWarn = float.Parse(tb_stock_warn.Text);
-
+                float number = float.Parse(tb_number.Text);
                 if (radioButton1.Checked)
                     unit = radioButton1.Tag.ToString();
                 else
@@ -40,7 +41,7 @@ namespace TESA_Res_v0
                 item.ItemName = name;
                 item.ItemUnit = unit;
                 item.ItemWarn = stockWarn;
-                item.ItemExists = 0;
+                item.ItemExists = number;
                 dbe.ItemTable.Add(item);
                 dbe.SaveChanges();
 

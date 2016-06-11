@@ -39,6 +39,9 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.panel_item_unit = new System.Windows.Forms.Panel();
             this.lblWarning = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tb_number = new System.Windows.Forms.TextBox();
             this.panel_item_unit.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +57,7 @@
             // 
             // tb_item_name
             // 
-            this.tb_item_name.Location = new System.Drawing.Point(386, 145);
+            this.tb_item_name.Location = new System.Drawing.Point(382, 145);
             this.tb_item_name.Margin = new System.Windows.Forms.Padding(6);
             this.tb_item_name.Name = "tb_item_name";
             this.tb_item_name.Size = new System.Drawing.Size(196, 38);
@@ -63,7 +66,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(136, 271);
+            this.label1.Location = new System.Drawing.Point(136, 240);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(109, 32);
@@ -72,7 +75,7 @@
             // 
             // tb_stock_warn
             // 
-            this.tb_stock_warn.Location = new System.Drawing.Point(386, 486);
+            this.tb_stock_warn.Location = new System.Drawing.Point(382, 423);
             this.tb_stock_warn.Margin = new System.Windows.Forms.Padding(6);
             this.tb_stock_warn.Name = "tb_stock_warn";
             this.tb_stock_warn.Size = new System.Drawing.Size(196, 38);
@@ -107,7 +110,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(142, 486);
+            this.label2.Location = new System.Drawing.Point(136, 424);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(232, 32);
@@ -140,7 +143,7 @@
             // 
             this.panel_item_unit.Controls.Add(this.radioButton1);
             this.panel_item_unit.Controls.Add(this.radioButton2);
-            this.panel_item_unit.Location = new System.Drawing.Point(382, 271);
+            this.panel_item_unit.Location = new System.Drawing.Point(382, 217);
             this.panel_item_unit.Name = "panel_item_unit";
             this.panel_item_unit.Size = new System.Drawing.Size(200, 100);
             this.panel_item_unit.TabIndex = 9;
@@ -156,12 +159,40 @@
             this.lblWarning.TabIndex = 10;
             this.lblWarning.Text = "* Lütfen tüm alanları uygun olarak doldurunuz.";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(136, 332);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(178, 32);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Stok Miktarı :";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(136, 48);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(135, 32);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Stok Ekle";
+            // 
+            // tb_number
+            // 
+            this.tb_number.Location = new System.Drawing.Point(382, 329);
+            this.tb_number.Name = "tb_number";
+            this.tb_number.Size = new System.Drawing.Size(196, 38);
+            this.tb_number.TabIndex = 13;
+            // 
             // Form_Items
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.tb_number);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lblWarning);
             this.Controls.Add(this.panel_item_unit);
             this.Controls.Add(this.btnBack);
@@ -196,5 +227,8 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Panel panel_item_unit;
         private System.Windows.Forms.Label lblWarning;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tb_number;
     }
 }

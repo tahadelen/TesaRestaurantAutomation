@@ -27,13 +27,7 @@ namespace TESA_Res_v0
 
       
        
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form form_add_item = new Form_Items();
-            form_add_item.Show();
-            this.Close();
-        }
-
+     
         private void button2_Click(object sender, EventArgs e)
         {
             Form form_food = new Form_Food();
@@ -81,6 +75,13 @@ namespace TESA_Res_v0
         {
             Form form_tables = new Form3();
             form_tables.Show();
+            this.Close();
+        }
+
+        private void btn_stock_Click(object sender, EventArgs e)
+        {
+            Form form_stock = new Form_Stock();
+            form_stock.Show();
             this.Close();
         }
     }
