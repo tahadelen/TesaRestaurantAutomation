@@ -9,16 +9,17 @@ using System.Windows.Forms;
 
 namespace TESA_Res_v0
 {
-    public partial class Form_Stock_Edit : Form_Stock_List
+    public partial class Form_Stock_Delete : Form_Stock_List
     {
         private tesaresdbEntities dbe = new tesaresdbEntities();
 
-        public Form_Stock_Edit()
+        public Form_Stock_Delete()
         {
             InitializeComponent();
-            this.btn_jobless.Text = "Düzenle";
+            this.btn_jobless.Text = "Sil";
             this.btn_jobless.Visible = true;
         }
+
         protected override void btn_jobless_Click(object sender, EventArgs e)
         {
 
@@ -32,9 +33,24 @@ namespace TESA_Res_v0
                                   where iId == stock.ItemId
                                   select stock).First();
 
-            Form form_edit_item = new Form_Item_Edit(selected);
-            form_edit_item.Show();
-            this.Close();
+            DialogResult dr = MessageBox.Show("Kod: " + selected.ItemId + Environment.NewLine + "Malzeme Adı: " + selected.ItemName + Environment.NewLine + "olan malzemeyi silmek istediğinize emin misiniz?",
+                      "Silme İşlemi Onay", MessageBoxButtons.YesNo);
+            switch (dr)
+            {
+                case DialogResult.Yes:
+
+                    dbe.ItemTable.Remove(selected);
+                    dbe.SaveChanges();
+
+                    Form form_del_item = new Form_Stock_Delete();
+                    form_del_item.Show();
+                    this.Close();
+
+                    break;
+                case DialogResult.No: break;
+            }
+
+            
         }
     }
 }

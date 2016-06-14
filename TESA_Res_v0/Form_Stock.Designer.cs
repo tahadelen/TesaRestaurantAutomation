@@ -84,6 +84,7 @@
             this.btn_stock_delete.TabIndex = 4;
             this.btn_stock_delete.Text = "Stoktan Sil";
             this.btn_stock_delete.UseVisualStyleBackColor = true;
+            this.btn_stock_delete.Click += new System.EventHandler(this.btn_stock_delete_Click);
             // 
             // label1
             // 
@@ -107,7 +108,7 @@
             this.Controls.Add(this.btn_back);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form_Stock";
             this.Text = "Form_Stock";
             this.ResumeLayout(false);

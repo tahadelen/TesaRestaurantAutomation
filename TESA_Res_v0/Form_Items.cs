@@ -19,8 +19,8 @@ namespace TESA_Res_v0
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            Form form_main = new Form2();
-            form_main.Show();
+            Form form_stocks = new Form_Stock();
+            form_stocks.Show();
             this.Close();
         }
 
@@ -45,8 +45,8 @@ namespace TESA_Res_v0
                 dbe.ItemTable.Add(item);
                 dbe.SaveChanges();
 
-                Form form_main = new Form2();
-                form_main.Show();
+                Form form_stocks = new Form_Stock();
+                form_stocks.Show();
                 this.Close();
             } else
             {

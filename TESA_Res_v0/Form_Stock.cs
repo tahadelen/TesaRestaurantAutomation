@@ -43,5 +43,12 @@ namespace TESA_Res_v0
             form_main.Show();
             this.Close();
         }
+
+        private void btn_stock_delete_Click(object sender, EventArgs e)
+        {
+            Form form_stock_delete = new Form_Stock_Delete();
+            form_stock_delete.Show();
+            this.Close();
+        }
     }
 }

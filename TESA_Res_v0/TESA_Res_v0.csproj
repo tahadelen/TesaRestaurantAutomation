@@ -148,6 +148,12 @@
     <Compile Include="Form_Stock.Designer.cs">
       <DependentUpon>Form_Stock.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_Stock_Delete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Stock_Delete.Designer.cs">
+      <DependentUpon>Form_Stock_Delete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Stock_Edit.cs">
       <SubType>Form</SubType>
     </Compile>

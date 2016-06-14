@@ -33,6 +33,7 @@ namespace TESA_Res_v0
             dg_stocks.Columns[4].HeaderText = "Birim";
             dg_stocks.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dg_stocks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dg_stocks.MultiSelect = false;
         }
 
         private void btn_main_Click(object sender, EventArgs e)

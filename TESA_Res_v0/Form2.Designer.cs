@@ -108,7 +108,7 @@
             this.btn_stock.Name = "btn_stock";
             this.btn_stock.Size = new System.Drawing.Size(160, 100);
             this.btn_stock.TabIndex = 23;
-            this.btn_stock.Text = "Stok Giriş";
+            this.btn_stock.Text = "Stok";
             this.btn_stock.UseVisualStyleBackColor = true;
             this.btn_stock.Click += new System.EventHandler(this.btn_stock_Click);
             // 
