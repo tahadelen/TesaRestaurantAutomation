@@ -20,11 +20,16 @@ namespace TESA_Res_v0
             dg_stocks.DataSource = (from it in dbe.ItemTable
                                     select new { Name = it.ItemName, Number = it.ItemExists,
                                         Threshold = it.ItemWarn, Unit = it.ItemUnit }).ToList();
+            dg_stocks.ColumnHeadersHeight = 35;
+            dg_stocks.RowTemplate.Height = 35;
             dg_stocks.Columns[0].HeaderText = "Stok Adı";
+            dg_stocks.Columns[0].Width = 500;
             dg_stocks.Columns[1].HeaderText = "Adet";
+            dg_stocks.Columns[1].Width = 120;
             dg_stocks.Columns[2].HeaderText = "Uyarı Sınırı";
+            dg_stocks.Columns[2].Width = 150;
             dg_stocks.Columns[3].HeaderText = "Birim";
-
+            dg_stocks.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         private void btn_main_Click(object sender, EventArgs e)

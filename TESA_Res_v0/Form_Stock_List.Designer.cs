@@ -46,7 +46,8 @@
             // 
             // dg_stocks
             // 
-            this.dg_stocks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg_stocks.ColumnHeadersHeight = 30;
+            this.dg_stocks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dg_stocks.Location = new System.Drawing.Point(32, 61);
             this.dg_stocks.Name = "dg_stocks";
             this.dg_stocks.RowTemplate.Height = 24;
@@ -84,7 +85,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form_Stock_List";
             this.Text = "Form_Stock_List";
             ((System.ComponentModel.ISupportInitialize)(this.dg_stocks)).EndInit();
