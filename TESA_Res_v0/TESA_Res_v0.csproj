@@ -136,11 +136,23 @@
     <Compile Include="Form_Items.Designer.cs">
       <DependentUpon>Form_Items.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_Item_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Item_Edit.Designer.cs">
+      <DependentUpon>Form_Item_Edit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Stock.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form_Stock.Designer.cs">
       <DependentUpon>Form_Stock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Stock_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Stock_Edit.Designer.cs">
+      <DependentUpon>Form_Stock_Edit.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_Stock_List.cs">
       <SubType>Form</SubType>

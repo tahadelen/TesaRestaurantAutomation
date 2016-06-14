@@ -217,18 +217,18 @@
         #endregion
 
         private System.Windows.Forms.Label lbl_item_name;
-        private System.Windows.Forms.TextBox tb_item_name;
+        protected System.Windows.Forms.TextBox tb_item_name;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tb_stock_warn;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        protected System.Windows.Forms.TextBox tb_stock_warn;
+        protected System.Windows.Forms.RadioButton radioButton1;
+        protected System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnAdd;
+        protected System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Panel panel_item_unit;
-        private System.Windows.Forms.Label lblWarning;
+        protected System.Windows.Forms.Label lblWarning;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tb_number;
+        protected System.Windows.Forms.TextBox tb_number;
     }
 }

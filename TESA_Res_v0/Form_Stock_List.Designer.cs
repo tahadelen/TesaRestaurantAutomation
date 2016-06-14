@@ -32,6 +32,7 @@
             this.dg_stocks = new System.Windows.Forms.DataGridView();
             this.btn_main = new System.Windows.Forms.Button();
             this.btn_back = new System.Windows.Forms.Button();
+            this.btn_jobless = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dg_stocks)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,11 +75,23 @@
             this.btn_back.UseVisualStyleBackColor = true;
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
+            // btn_jobless
+            // 
+            this.btn_jobless.Location = new System.Drawing.Point(32, 656);
+            this.btn_jobless.Name = "btn_jobless";
+            this.btn_jobless.Size = new System.Drawing.Size(200, 100);
+            this.btn_jobless.TabIndex = 4;
+            this.btn_jobless.Text = "button1";
+            this.btn_jobless.UseVisualStyleBackColor = true;
+            this.btn_jobless.Visible = false;
+            this.btn_jobless.Click += new System.EventHandler(this.btn_jobless_Click);
+            // 
             // Form_Stock_List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.btn_jobless);
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.btn_main);
             this.Controls.Add(this.dg_stocks);
@@ -97,8 +110,9 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dg_stocks;
+        public System.Windows.Forms.DataGridView dg_stocks;
         private System.Windows.Forms.Button btn_main;
         private System.Windows.Forms.Button btn_back;
+        protected System.Windows.Forms.Button btn_jobless;
     }
 }

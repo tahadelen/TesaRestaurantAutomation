@@ -18,7 +18,9 @@ namespace TESA_Res_v0
 
         private void btn_stock_edit_Click(object sender, EventArgs e)
         {
-
+            Form form_edit_item = new Form_Stock_Edit();
+            form_edit_item.Show();
+            this.Close();
         }
 
         private void btn_stock_add_Click(object sender, EventArgs e)

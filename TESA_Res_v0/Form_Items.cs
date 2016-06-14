@@ -24,7 +24,7 @@ namespace TESA_Res_v0
             this.Close();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        protected virtual void btnAdd_Click(object sender, EventArgs e)
         {
             tesaresdbEntities dbe = new tesaresdbEntities();
             ItemTable item = new ItemTable();
