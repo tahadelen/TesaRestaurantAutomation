@@ -20,7 +20,7 @@ namespace TESA_Res_v0
             tb_number.Text = itemE.ItemExists.ToString();
             tb_stock_warn.Text = itemE.ItemWarn.ToString();
 
-            if(itemE.ItemUnit.ToString() == "Kg")
+            if(itemE.ItemUnit.Replace(" ", string.Empty) == "Kg")
             {
                 radioButton1.Checked = true;
             } else
