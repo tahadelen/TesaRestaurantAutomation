@@ -1,0 +1,826 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="tesaresdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="AuthorizationTable">
+          <Key>
+            <PropertyRef Name="AuthId" />
+          </Key>
+          <Property Name="AuthId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="AuthP" Type="nchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CallerIdCustomer">
+          <Key>
+            <PropertyRef Name="customerID" />
+          </Key>
+          <Property Name="nameSurname" Type="nchar" MaxLength="100" />
+          <Property Name="phoneNumber" Type="nchar" MaxLength="100" />
+          <Property Name="customerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="address1" Type="nchar" MaxLength="100" />
+          <Property Name="address2" Type="nchar" MaxLength="100" />
+          <Property Name="city" Type="nchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CategoryTable">
+          <Key>
+            <PropertyRef Name="CatId" />
+          </Key>
+          <Property Name="CatId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CatName" Type="ntext" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CompanyTable">
+          <Key>
+            <PropertyRef Name="companyID" />
+          </Key>
+          <Property Name="companyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyName" Type="nchar" MaxLength="100" />
+          <Property Name="address1" Type="nchar" MaxLength="100" />
+          <Property Name="address2" Type="nchar" MaxLength="100" />
+          <Property Name="phoneNumber" Type="nchar" MaxLength="100" />
+          <Property Name="fax" Type="nchar" MaxLength="100" />
+          <Property Name="mail" Type="nchar" MaxLength="100" />
+          <Property Name="taxAdmin" Type="nchar" MaxLength="100" />
+          <Property Name="taxNum" Type="nchar" MaxLength="100" />
+          <Property Name="discountPer" Type="int" />
+        </EntityType>
+        <EntityType Name="CustomerTable">
+          <Key>
+            <PropertyRef Name="customerID" />
+          </Key>
+          <Property Name="nameSurname" Type="nchar" MaxLength="100" />
+          <Property Name="address1" Type="nchar" MaxLength="100" />
+          <Property Name="address2" Type="nchar" MaxLength="100" />
+          <Property Name="phoneNumber" Type="nchar" MaxLength="100" />
+          <Property Name="mail" Type="nchar" MaxLength="100" />
+          <Property Name="discountPer" Type="int" />
+          <Property Name="companyID" Type="int" />
+          <Property Name="customerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FloorTable">
+          <Key>
+            <PropertyRef Name="FloorId" />
+          </Key>
+          <Property Name="FloorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FloorName" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FreqUsedTable">
+          <Key>
+            <PropertyRef Name="FreqId" />
+          </Key>
+          <Property Name="FreqId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IngredientsTable">
+          <Key>
+            <PropertyRef Name="IngId" />
+          </Key>
+          <Property Name="IngId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemId" Type="int" Nullable="false" />
+          <Property Name="IngQuantity" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemTable">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemName" Type="text" Nullable="false" />
+          <Property Name="ItemUnit" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="ItemWarn" Type="float" Nullable="false" />
+          <Property Name="ItemExists" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderTable">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TableId" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Number" Type="float" Nullable="false" />
+          <Property Name="Cost" Type="float" Nullable="false" />
+          <Property Name="Time" Type="datetime" Nullable="false" />
+          <Property Name="Dlt" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaymentTable">
+          <Key>
+            <PropertyRef Name="PaymentId" />
+          </Key>
+          <Property Name="PaymentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TableId" Type="int" Nullable="false" />
+          <Property Name="OrderIds" Type="text" Nullable="false" />
+          <Property Name="TotalCost" Type="float" Nullable="false" />
+          <Property Name="Time" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaymentTypeTable">
+          <Key>
+            <PropertyRef Name="PTTId" />
+          </Key>
+          <Property Name="PTTId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PTTName" Type="ntext" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product_Categories_Table">
+          <Key>
+            <PropertyRef Name="productID" />
+          </Key>
+          <Property Name="productID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productName" Type="nchar" MaxLength="100" />
+          <Property Name="productDescription" Type="nchar" MaxLength="100" />
+          <Property Name="productImage" Type="image" />
+        </EntityType>
+        <EntityType Name="Product_Product">
+          <Key>
+            <PropertyRef Name="productID" />
+          </Key>
+          <Property Name="productID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productName" Type="nchar" MaxLength="100" />
+          <Property Name="productCat" Type="int" Nullable="false" />
+          <Property Name="productImage" Type="image" />
+          <Property Name="productPrice" Type="int" />
+          <Property Name="productPrepTime" Type="int" />
+          <Property Name="productPrepPlace" Type="nchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ProductTable">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductName" Type="text" Nullable="false" />
+          <Property Name="CatId" Type="int" Nullable="false" />
+          <Property Name="ProductDetails" Type="text" Nullable="false" />
+          <Property Name="ProCost" Type="float" Nullable="false" />
+          <Property Name="RecipeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RecipeTable">
+          <Key>
+            <PropertyRef Name="RecId" />
+          </Key>
+          <Property Name="RecId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RecName" Type="text" Nullable="false" />
+          <Property Name="RecIngredients" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StateTable">
+          <Key>
+            <PropertyRef Name="StateId" />
+          </Key>
+          <Property Name="StateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StateName" Type="ntext" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TableTable">
+          <Key>
+            <PropertyRef Name="TableId" />
+          </Key>
+          <Property Name="TableId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TableName" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="StateId" Type="int" Nullable="false" />
+          <Property Name="FloorId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TransactionTable">
+          <Key>
+            <PropertyRef Name="TransactionId" />
+          </Key>
+          <Property Name="TransactionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="TableId" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Number" Type="float" Nullable="false" />
+          <Property Name="Cost" Type="float" Nullable="false" />
+          <Property Name="PaymentType" Type="int" Nullable="false" />
+          <Property Name="Dlt" Type="bit" Nullable="false" />
+          <Property Name="Time" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserTable">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserPass" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CustomerTable_CompanyTable1">
+          <End Role="CompanyTable" Type="Self.CompanyTable" Multiplicity="0..1" />
+          <End Role="CustomerTable" Type="Self.CustomerTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyTable">
+              <PropertyRef Name="companyID" />
+            </Principal>
+            <Dependent Role="CustomerTable">
+              <PropertyRef Name="companyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Categories_Table_Product_Categories_Table">
+          <End Role="Product_Categories_Table" Type="Self.Product_Categories_Table" Multiplicity="1" />
+          <End Role="Product_Categories_Table1" Type="Self.Product_Categories_Table" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Categories_Table">
+              <PropertyRef Name="productID" />
+            </Principal>
+            <Dependent Role="Product_Categories_Table1">
+              <PropertyRef Name="productID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Product_Product_Categories_Table">
+          <End Role="Product_Categories_Table" Type="Self.Product_Categories_Table" Multiplicity="1" />
+          <End Role="Product_Product" Type="Self.Product_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Categories_Table">
+              <PropertyRef Name="productID" />
+            </Principal>
+            <Dependent Role="Product_Product">
+              <PropertyRef Name="productCat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Product_Product_Categories_Table1">
+          <End Role="Product_Categories_Table" Type="Self.Product_Categories_Table" Multiplicity="1" />
+          <End Role="Product_Product" Type="Self.Product_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Categories_Table">
+              <PropertyRef Name="productID" />
+            </Principal>
+            <Dependent Role="Product_Product">
+              <PropertyRef Name="productCat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="tesaresdbModelStoreContainer">
+          <EntitySet Name="AuthorizationTable" EntityType="Self.AuthorizationTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CallerIdCustomer" EntityType="Self.CallerIdCustomer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoryTable" EntityType="Self.CategoryTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompanyTable" EntityType="Self.CompanyTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerTable" EntityType="Self.CustomerTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FloorTable" EntityType="Self.FloorTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FreqUsedTable" EntityType="Self.FreqUsedTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IngredientsTable" EntityType="Self.IngredientsTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemTable" EntityType="Self.ItemTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderTable" EntityType="Self.OrderTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentTable" EntityType="Self.PaymentTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentTypeTable" EntityType="Self.PaymentTypeTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product_Categories_Table" EntityType="Self.Product_Categories_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product_Product" EntityType="Self.Product_Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductTable" EntityType="Self.ProductTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecipeTable" EntityType="Self.RecipeTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StateTable" EntityType="Self.StateTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TableTable" EntityType="Self.TableTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransactionTable" EntityType="Self.TransactionTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserTable" EntityType="Self.UserTable" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CustomerTable_CompanyTable1" Association="Self.FK_CustomerTable_CompanyTable1">
+            <End Role="CompanyTable" EntitySet="CompanyTable" />
+            <End Role="CustomerTable" EntitySet="CustomerTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Categories_Table_Product_Categories_Table" Association="Self.FK_Product_Categories_Table_Product_Categories_Table">
+            <End Role="Product_Categories_Table" EntitySet="Product_Categories_Table" />
+            <End Role="Product_Categories_Table1" EntitySet="Product_Categories_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Product_Product_Categories_Table" Association="Self.FK_Product_Product_Product_Categories_Table">
+            <End Role="Product_Categories_Table" EntitySet="Product_Categories_Table" />
+            <End Role="Product_Product" EntitySet="Product_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Product_Product_Categories_Table1" Association="Self.FK_Product_Product_Product_Categories_Table1">
+            <End Role="Product_Categories_Table" EntitySet="Product_Categories_Table" />
+            <End Role="Product_Product" EntitySet="Product_Product" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="tesaresdbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="AuthorizationTable">
+          <Key>
+            <PropertyRef Name="AuthId" />
+          </Key>
+          <Property Name="AuthId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="AuthP" Type="String" MaxLength="25" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FreqUsedTable">
+          <Key>
+            <PropertyRef Name="FreqId" />
+          </Key>
+          <Property Name="FreqId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderTable">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TableId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="Double" Nullable="false" />
+          <Property Name="Cost" Type="Double" Nullable="false" />
+          <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Dlt" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaymentTable">
+          <Key>
+            <PropertyRef Name="PaymentId" />
+          </Key>
+          <Property Name="PaymentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderIds" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TotalCost" Type="Double" Nullable="false" />
+          <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TableId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaymentTypeTable">
+          <Key>
+            <PropertyRef Name="PTTId" />
+          </Key>
+          <Property Name="PTTId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PTTName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StateTable">
+          <Key>
+            <PropertyRef Name="StateId" />
+          </Key>
+          <Property Name="StateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TransactionTable">
+          <Key>
+            <PropertyRef Name="TransactionId" />
+          </Key>
+          <Property Name="TransactionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="TableId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="Double" Nullable="false" />
+          <Property Name="Cost" Type="Double" Nullable="false" />
+          <Property Name="PaymentType" Type="Int32" Nullable="false" />
+          <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Dlt" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserTable">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="UserPass" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="tesaresdbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AuthorizationTable" EntityType="Self.AuthorizationTable" />
+          <EntitySet Name="FreqUsedTable" EntityType="Self.FreqUsedTable" />
+          <EntitySet Name="OrderTable" EntityType="Self.OrderTable" />
+          <EntitySet Name="PaymentTable" EntityType="Self.PaymentTable" />
+          <EntitySet Name="PaymentTypeTable" EntityType="Self.PaymentTypeTable" />
+          <EntitySet Name="StateTable" EntityType="Self.StateTable" />
+          <EntitySet Name="TransactionTable" EntityType="Self.TransactionTable" />
+          <EntitySet Name="UserTable" EntityType="Self.UserTable" />
+          <EntitySet Name="RecipeTable" EntityType="tesaresdbModel.RecipeTable" />
+          <EntitySet Name="ItemTable" EntityType="tesaresdbModel.ItemTable" />
+          <EntitySet Name="IngredientsTable" EntityType="tesaresdbModel.IngredientsTable" />
+          <EntitySet Name="ProductTable" EntityType="tesaresdbModel.ProductTable" />
+          <EntitySet Name="CategoryTable" EntityType="tesaresdbModel.CategoryTable" />
+          <EntitySet Name="FloorTable" EntityType="tesaresdbModel.FloorTable" />
+          <EntitySet Name="TableTable" EntityType="tesaresdbModel.TableTable" />
+          <EntitySet Name="CallerIdCustomer" EntityType="tesaresdbModel.CallerIdCustomer" />
+          <EntitySet Name="CompanyTable" EntityType="tesaresdbModel.CompanyTable" />
+          <EntitySet Name="CustomerTable" EntityType="tesaresdbModel.CustomerTable" />
+          <AssociationSet Name="FK_CustomerTable_CompanyTable1" Association="tesaresdbModel.FK_CustomerTable_CompanyTable1">
+            <End Role="CompanyTable" EntitySet="CompanyTable" />
+            <End Role="CustomerTable" EntitySet="CustomerTable" />
+          </AssociationSet>
+          <EntitySet Name="Product_Categories_Table" EntityType="tesaresdbModel.Product_Categories_Table" />
+          <EntitySet Name="Product_Product" EntityType="tesaresdbModel.Product_Product" />
+          <AssociationSet Name="FK_Product_Categories_Table_Product_Categories_Table" Association="tesaresdbModel.FK_Product_Categories_Table_Product_Categories_Table">
+            <End Role="Product_Categories_Table" EntitySet="Product_Categories_Table" />
+            <End Role="Product_Categories_Table1" EntitySet="Product_Categories_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Product_Product_Categories_Table" Association="tesaresdbModel.FK_Product_Product_Product_Categories_Table">
+            <End Role="Product_Categories_Table" EntitySet="Product_Categories_Table" />
+            <End Role="Product_Product" EntitySet="Product_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Product_Product_Categories_Table1" Association="tesaresdbModel.FK_Product_Product_Product_Categories_Table1">
+            <End Role="Product_Categories_Table" EntitySet="Product_Categories_Table" />
+            <End Role="Product_Product" EntitySet="Product_Product" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="RecipeTable">
+          <Key>
+            <PropertyRef Name="RecId" />
+          </Key>
+          <Property Name="RecId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RecIngredients" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ItemTable">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ItemUnit" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ItemWarn" Type="Double" Nullable="false" />
+          <Property Name="ItemExists" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IngredientsTable">
+          <Key>
+            <PropertyRef Name="IngId" />
+          </Key>
+          <Property Name="IngId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemId" Type="Int32" Nullable="false" />
+          <Property Name="IngQuantity" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductTable">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CatId" Type="Int32" Nullable="false" />
+          <Property Name="ProductDetails" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ProCost" Type="Double" Nullable="false" />
+          <Property Name="RecipeId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CategoryTable">
+          <Key>
+            <PropertyRef Name="CatId" />
+          </Key>
+          <Property Name="CatId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CatName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="FloorTable">
+          <Key>
+            <PropertyRef Name="FloorId" />
+          </Key>
+          <Property Name="FloorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FloorName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TableTable">
+          <Key>
+            <PropertyRef Name="TableId" />
+          </Key>
+          <Property Name="TableId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TableName" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="StateId" Type="Int32" Nullable="false" />
+          <Property Name="FloorId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CallerIdCustomer">
+          <Key>
+            <PropertyRef Name="customerID" />
+          </Key>
+          <Property Name="nameSurname" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="phoneNumber" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="customerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="address1" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="address2" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="city" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CompanyTable">
+          <Key>
+            <PropertyRef Name="companyID" />
+          </Key>
+          <Property Name="companyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="companyName" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="address1" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="address2" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="phoneNumber" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="fax" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="mail" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="taxAdmin" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="taxNum" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="discountPer" Type="Int32" />
+          <NavigationProperty Name="CustomerTable" Relationship="tesaresdbModel.FK_CustomerTable_CompanyTable1" FromRole="CompanyTable" ToRole="CustomerTable" />
+        </EntityType>
+        <EntityType Name="CustomerTable">
+          <Key>
+            <PropertyRef Name="customerID" />
+          </Key>
+          <Property Name="nameSurname" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="address1" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="address2" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="phoneNumber" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="mail" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="discountPer" Type="Int32" />
+          <Property Name="companyID" Type="Int32" />
+          <Property Name="customerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="CompanyTable" Relationship="tesaresdbModel.FK_CustomerTable_CompanyTable1" FromRole="CustomerTable" ToRole="CompanyTable" />
+        </EntityType>
+        <Association Name="FK_CustomerTable_CompanyTable1">
+          <End Type="tesaresdbModel.CompanyTable" Role="CompanyTable" Multiplicity="0..1" />
+          <End Type="tesaresdbModel.CustomerTable" Role="CustomerTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyTable">
+              <PropertyRef Name="companyID" />
+            </Principal>
+            <Dependent Role="CustomerTable">
+              <PropertyRef Name="companyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Product_Categories_Table">
+          <Key>
+            <PropertyRef Name="productID" />
+          </Key>
+          <Property Name="productID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="productName" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="productDescription" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="productImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Product_Categories_Table1" Relationship="tesaresdbModel.FK_Product_Categories_Table_Product_Categories_Table" FromRole="Product_Categories_Table" ToRole="Product_Categories_Table1" />
+          <NavigationProperty Name="Product_Categories_Table2" Relationship="tesaresdbModel.FK_Product_Categories_Table_Product_Categories_Table" FromRole="Product_Categories_Table1" ToRole="Product_Categories_Table" />
+          <NavigationProperty Name="Product_Product" Relationship="tesaresdbModel.FK_Product_Product_Product_Categories_Table" FromRole="Product_Categories_Table" ToRole="Product_Product" />
+          <NavigationProperty Name="Product_Product1" Relationship="tesaresdbModel.FK_Product_Product_Product_Categories_Table1" FromRole="Product_Categories_Table" ToRole="Product_Product" />
+          </EntityType>
+        <EntityType Name="Product_Product">
+          <Key>
+            <PropertyRef Name="productID" />
+          </Key>
+          <Property Name="productID" Type="Int32" Nullable="false" />
+          <Property Name="productName" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="productCat" Type="Int32" Nullable="false" />
+          <Property Name="productImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="productPrice" Type="Int32" />
+          <Property Name="productPrepTime" Type="Int32" />
+          <Property Name="productPrepPlace" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Product_Categories_Table" Relationship="tesaresdbModel.FK_Product_Product_Product_Categories_Table" FromRole="Product_Product" ToRole="Product_Categories_Table" />
+          <NavigationProperty Name="Product_Categories_Table1" Relationship="tesaresdbModel.FK_Product_Product_Product_Categories_Table1" FromRole="Product_Product" ToRole="Product_Categories_Table" />
+        </EntityType>
+        <Association Name="FK_Product_Categories_Table_Product_Categories_Table">
+          <End Type="tesaresdbModel.Product_Categories_Table" Role="Product_Categories_Table" Multiplicity="1" />
+          <End Type="tesaresdbModel.Product_Categories_Table" Role="Product_Categories_Table1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Categories_Table">
+              <PropertyRef Name="productID" />
+            </Principal>
+            <Dependent Role="Product_Categories_Table1">
+              <PropertyRef Name="productID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Product_Product_Categories_Table">
+          <End Type="tesaresdbModel.Product_Categories_Table" Role="Product_Categories_Table" Multiplicity="1" />
+          <End Type="tesaresdbModel.Product_Product" Role="Product_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Categories_Table">
+              <PropertyRef Name="productID" />
+            </Principal>
+            <Dependent Role="Product_Product">
+              <PropertyRef Name="productCat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Product_Product_Categories_Table1">
+          <End Type="tesaresdbModel.Product_Categories_Table" Role="Product_Categories_Table" Multiplicity="1" />
+          <End Type="tesaresdbModel.Product_Product" Role="Product_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Categories_Table">
+              <PropertyRef Name="productID" />
+            </Principal>
+            <Dependent Role="Product_Product">
+              <PropertyRef Name="productCat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="tesaresdbModelStoreContainer" CdmEntityContainer="tesaresdbEntities">
+          <EntitySetMapping Name="AuthorizationTable">
+            <EntityTypeMapping TypeName="tesaresdbModel.AuthorizationTable">
+              <MappingFragment StoreEntitySet="AuthorizationTable">
+                <ScalarProperty Name="AuthId" ColumnName="AuthId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="AuthP" ColumnName="AuthP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FreqUsedTable">
+            <EntityTypeMapping TypeName="tesaresdbModel.FreqUsedTable">
+              <MappingFragment StoreEntitySet="FreqUsedTable">
+                <ScalarProperty Name="FreqId" ColumnName="FreqId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderTable">
+            <EntityTypeMapping TypeName="tesaresdbModel.OrderTable">
+              <MappingFragment StoreEntitySet="OrderTable">
+                <ScalarProperty Name="Dlt" ColumnName="Dlt" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="TableId" ColumnName="TableId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentTable">
+            <EntityTypeMapping TypeName="tesaresdbModel.PaymentTable">
+              <MappingFragment StoreEntitySet="PaymentTable">
+                <ScalarProperty Name="TableId" ColumnName="TableId" />
+                <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
+                <ScalarProperty Name="OrderIds" ColumnName="OrderIds" />
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentTypeTable">
+            <EntityTypeMapping TypeName="tesaresdbModel.PaymentTypeTable">
+              <MappingFragment StoreEntitySet="PaymentTypeTable">
+                <ScalarProperty Name="PTTId" ColumnName="PTTId" />
+                <ScalarProperty Name="PTTName" ColumnName="PTTName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StateTable">
+            <EntityTypeMapping TypeName="tesaresdbModel.StateTable">
+              <MappingFragment StoreEntitySet="StateTable">
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransactionTable">
+            <EntityTypeMapping TypeName="tesaresdbModel.TransactionTable">
+              <MappingFragment StoreEntitySet="TransactionTable">
+                <ScalarProperty Name="Dlt" ColumnName="Dlt" />
+                <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="TableId" ColumnName="TableId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTable">
+            <EntityTypeMapping TypeName="tesaresdbModel.UserTable">
+              <MappingFragment StoreEntitySet="UserTable">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserPass" ColumnName="UserPass" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecipeTable">
+            <EntityTypeMapping TypeName="tesaresdbModel.RecipeTable">
+              <MappingFragment StoreEntitySet="RecipeTable">
+                <ScalarProperty Name="RecIngredients" ColumnName="RecIngredients" />
+                <ScalarProperty Name="RecName" ColumnName="RecName" />
+                <ScalarProperty Name="RecId" ColumnName="RecId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemTable">
+            <EntityTypeMapping TypeName="tesaresdbModel.ItemTable">
+              <MappingFragment StoreEntitySet="ItemTable">
+                <ScalarProperty Name="ItemExists" ColumnName="ItemExists" />
+                <ScalarProperty Name="ItemWarn" ColumnName="ItemWarn" />
+                <ScalarProperty Name="ItemUnit" ColumnName="ItemUnit" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IngredientsTable">
+            <EntityTypeMapping TypeName="tesaresdbModel.IngredientsTable">
+              <MappingFragment StoreEntitySet="IngredientsTable">
+                <ScalarProperty Name="IngQuantity" ColumnName="IngQuantity" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="IngId" ColumnName="IngId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductTable">
+            <EntityTypeMapping TypeName="tesaresdbModel.ProductTable">
+              <MappingFragment StoreEntitySet="ProductTable">
+                <ScalarProperty Name="RecipeId" ColumnName="RecipeId" />
+                <ScalarProperty Name="ProCost" ColumnName="ProCost" />
+                <ScalarProperty Name="ProductDetails" ColumnName="ProductDetails" />
+                <ScalarProperty Name="CatId" ColumnName="CatId" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryTable">
+            <EntityTypeMapping TypeName="tesaresdbModel.CategoryTable">
+              <MappingFragment StoreEntitySet="CategoryTable">
+                <ScalarProperty Name="CatName" ColumnName="CatName" />
+                <ScalarProperty Name="CatId" ColumnName="CatId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FloorTable">
+            <EntityTypeMapping TypeName="tesaresdbModel.FloorTable">
+              <MappingFragment StoreEntitySet="FloorTable">
+                <ScalarProperty Name="FloorName" ColumnName="FloorName" />
+                <ScalarProperty Name="FloorId" ColumnName="FloorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TableTable">
+            <EntityTypeMapping TypeName="tesaresdbModel.TableTable">
+              <MappingFragment StoreEntitySet="TableTable">
+                <ScalarProperty Name="FloorId" ColumnName="FloorId" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="TableId" ColumnName="TableId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CallerIdCustomer">
+            <EntityTypeMapping TypeName="tesaresdbModel.CallerIdCustomer">
+              <MappingFragment StoreEntitySet="CallerIdCustomer">
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="address2" ColumnName="address2" />
+                <ScalarProperty Name="address1" ColumnName="address1" />
+                <ScalarProperty Name="customerID" ColumnName="customerID" />
+                <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+                <ScalarProperty Name="nameSurname" ColumnName="nameSurname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompanyTable">
+            <EntityTypeMapping TypeName="tesaresdbModel.CompanyTable">
+              <MappingFragment StoreEntitySet="CompanyTable">
+                <ScalarProperty Name="discountPer" ColumnName="discountPer" />
+                <ScalarProperty Name="taxNum" ColumnName="taxNum" />
+                <ScalarProperty Name="taxAdmin" ColumnName="taxAdmin" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="fax" ColumnName="fax" />
+                <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+                <ScalarProperty Name="address2" ColumnName="address2" />
+                <ScalarProperty Name="address1" ColumnName="address1" />
+                <ScalarProperty Name="companyName" ColumnName="companyName" />
+                <ScalarProperty Name="companyID" ColumnName="companyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerTable">
+            <EntityTypeMapping TypeName="tesaresdbModel.CustomerTable">
+              <MappingFragment StoreEntitySet="CustomerTable">
+                <ScalarProperty Name="customerID" ColumnName="customerID" />
+                <ScalarProperty Name="companyID" ColumnName="companyID" />
+                <ScalarProperty Name="discountPer" ColumnName="discountPer" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+                <ScalarProperty Name="address2" ColumnName="address2" />
+                <ScalarProperty Name="address1" ColumnName="address1" />
+                <ScalarProperty Name="nameSurname" ColumnName="nameSurname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product_Categories_Table">
+            <EntityTypeMapping TypeName="tesaresdbModel.Product_Categories_Table">
+              <MappingFragment StoreEntitySet="Product_Categories_Table">
+                <ScalarProperty Name="productImage" ColumnName="productImage" />
+                <ScalarProperty Name="productDescription" ColumnName="productDescription" />
+                <ScalarProperty Name="productName" ColumnName="productName" />
+                <ScalarProperty Name="productID" ColumnName="productID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product_Product">
+            <EntityTypeMapping TypeName="tesaresdbModel.Product_Product">
+              <MappingFragment StoreEntitySet="Product_Product">
+                <ScalarProperty Name="productPrepPlace" ColumnName="productPrepPlace" />
+                <ScalarProperty Name="productPrepTime" ColumnName="productPrepTime" />
+                <ScalarProperty Name="productPrice" ColumnName="productPrice" />
+                <ScalarProperty Name="productImage" ColumnName="productImage" />
+                <ScalarProperty Name="productCat" ColumnName="productCat" />
+                <ScalarProperty Name="productName" ColumnName="productName" />
+                <ScalarProperty Name="productID" ColumnName="productID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
