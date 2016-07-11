@@ -72,13 +72,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddNewCompany.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewCompany.Designer.cs">
+      <DependentUpon>AddNewCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add_New_Customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_New_Customer.Designer.cs">
+      <DependentUpon>Add_New_Customer.cs</DependentUpon>
+    </Compile>
     <Compile Include="AuthorizationTable.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CallerIdCustomer.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="CategoryTable.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="CommonVars.cs" />
+    <Compile Include="CompanyTable.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerTable.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="FloorTable.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -112,17 +133,53 @@
     <Compile Include="Form5.Designer.cs">
       <DependentUpon>Form5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_Add_Category.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Add_Category.Designer.cs">
+      <DependentUpon>Form_Add_Category.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Add_New_Product.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Add_New_Product.Designer.cs">
+      <DependentUpon>Form_Add_New_Product.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Add_Product.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form_Add_Product.Designer.cs">
       <DependentUpon>Form_Add_Product.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_CategoryItem_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_CategoryItem_Edit.Designer.cs">
+      <DependentUpon>Form_CategoryItem_Edit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Customers.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form_Customers.Designer.cs">
       <DependentUpon>Form_Customers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Customer_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Customer_List.Designer.cs">
+      <DependentUpon>Form_Customer_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Customer_Order_Detail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Customer_Order_Detail.Designer.cs">
+      <DependentUpon>Form_Customer_Order_Detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Edit_Product_Item.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Edit_Product_Item.Designer.cs">
+      <DependentUpon>Form_Edit_Product_Item.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_Food.cs">
       <SubType>Form</SubType>
@@ -141,6 +198,66 @@
     </Compile>
     <Compile Include="Form_Item_Edit.Designer.cs">
       <DependentUpon>Form_Item_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Kasa_Giris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Kasa_Giris.Designer.cs">
+      <DependentUpon>Form_Kasa_Giris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_List_Product_Categories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_List_Product_Categories.Designer.cs">
+      <DependentUpon>Form_List_Product_Categories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_PackageService_Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_PackageService_Menu.Designer.cs">
+      <DependentUpon>Form_PackageService_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_ProductCategory_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ProductCategory_Edit.Designer.cs">
+      <DependentUpon>Form_ProductCategory_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Products_General.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Products_General.Designer.cs">
+      <DependentUpon>Form_Products_General.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Product_Categories_General.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Product_Categories_General.Designer.cs">
+      <DependentUpon>Form_Product_Categories_General.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Product_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Product_Edit.Designer.cs">
+      <DependentUpon>Form_Product_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Product_Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Product_Options.Designer.cs">
+      <DependentUpon>Form_Product_Options.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Remove_ProductCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Remove_ProductCategory.Designer.cs">
+      <DependentUpon>Form_Remove_ProductCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Show_Products.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Show_Products.Designer.cs">
+      <DependentUpon>Form_Show_Products.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_Stock.cs">
       <SubType>Form</SubType>
@@ -196,8 +313,32 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Musteriler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Musteriler.Designer.cs">
+      <DependentUpon>Musteriler.cs</DependentUpon>
+    </Compile>
     <Compile Include="OrderTable.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaketServisEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaketServisEkle.Designer.cs">
+      <DependentUpon>PaketServisEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Paket_Servis_Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Paket_Servis_Menu.Designer.cs">
+      <DependentUpon>Paket_Servis_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Paket_Servis_Opsiyon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Paket_Servis_Opsiyon.Designer.cs">
+      <DependentUpon>Paket_Servis_Opsiyon.cs</DependentUpon>
     </Compile>
     <Compile Include="PaymentTable.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -206,6 +347,12 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="ProductTable.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product_Categories_Table.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product_Product.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -231,6 +378,12 @@
     <Compile Include="UserTable.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddNewCompany.resx">
+      <DependentUpon>AddNewCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add_New_Customer.resx">
+      <DependentUpon>Add_New_Customer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -246,17 +399,65 @@
     <EmbeddedResource Include="Form5.resx">
       <DependentUpon>Form5.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_Add_Category.resx">
+      <DependentUpon>Form_Add_Category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Add_New_Product.resx">
+      <DependentUpon>Form_Add_New_Product.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Add_Product.resx">
       <DependentUpon>Form_Add_Product.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_CategoryItem_Edit.resx">
+      <DependentUpon>Form_CategoryItem_Edit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Customers.resx">
       <DependentUpon>Form_Customers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Customer_List.resx">
+      <DependentUpon>Form_Customer_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Customer_Order_Detail.resx">
+      <DependentUpon>Form_Customer_Order_Detail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Edit_Product_Item.resx">
+      <DependentUpon>Form_Edit_Product_Item.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Food.resx">
       <DependentUpon>Form_Food.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Items.resx">
       <DependentUpon>Form_Items.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Kasa_Giris.resx">
+      <DependentUpon>Form_Kasa_Giris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_List_Product_Categories.resx">
+      <DependentUpon>Form_List_Product_Categories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_PackageService_Menu.resx">
+      <DependentUpon>Form_PackageService_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ProductCategory_Edit.resx">
+      <DependentUpon>Form_ProductCategory_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Products_General.resx">
+      <DependentUpon>Form_Products_General.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Product_Categories_General.resx">
+      <DependentUpon>Form_Product_Categories_General.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Product_Edit.resx">
+      <DependentUpon>Form_Product_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Product_Options.resx">
+      <DependentUpon>Form_Product_Options.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Remove_ProductCategory.resx">
+      <DependentUpon>Form_Remove_ProductCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Show_Products.resx">
+      <DependentUpon>Form_Show_Products.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Stock.resx">
       <DependentUpon>Form_Stock.cs</DependentUpon>
@@ -266,6 +467,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_TableConcat.resx">
       <DependentUpon>Form_TableConcat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Musteriler.resx">
+      <DependentUpon>Musteriler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaketServisEkle.resx">
+      <DependentUpon>PaketServisEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Paket_Servis_Menu.resx">
+      <DependentUpon>Paket_Servis_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Paket_Servis_Opsiyon.resx">
+      <DependentUpon>Paket_Servis_Opsiyon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

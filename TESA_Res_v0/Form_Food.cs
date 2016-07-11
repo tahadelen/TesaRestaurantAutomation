@@ -560,5 +560,10 @@ namespace TESA_Res_v0
             }
 
         }
+
+        private void cb_1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

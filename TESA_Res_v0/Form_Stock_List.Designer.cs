@@ -33,6 +33,7 @@
             this.btn_main = new System.Windows.Forms.Button();
             this.btn_back = new System.Windows.Forms.Button();
             this.btn_jobless = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dg_stocks)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,18 +42,18 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(362, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(244, 32);
+            this.label1.Size = new System.Drawing.Size(197, 26);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Stokları Görüntüle";
+            this.label1.Text = "MÜŞTERİ LİSTESİ";
             // 
             // dg_stocks
             // 
             this.dg_stocks.ColumnHeadersHeight = 30;
             this.dg_stocks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dg_stocks.Location = new System.Drawing.Point(32, 61);
+            this.dg_stocks.Location = new System.Drawing.Point(32, 85);
             this.dg_stocks.Name = "dg_stocks";
             this.dg_stocks.RowTemplate.Height = 24;
-            this.dg_stocks.Size = new System.Drawing.Size(927, 578);
+            this.dg_stocks.Size = new System.Drawing.Size(927, 554);
             this.dg_stocks.TabIndex = 1;
             // 
             // btn_main
@@ -86,11 +87,21 @@
             this.btn_jobless.Visible = false;
             this.btn_jobless.Click += new System.EventHandler(this.btn_jobless_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(904, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Form_Stock_List
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.ClientSize = new System.Drawing.Size(1024, 741);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_jobless);
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.btn_main);
@@ -114,5 +125,6 @@
         private System.Windows.Forms.Button btn_main;
         private System.Windows.Forms.Button btn_back;
         protected System.Windows.Forms.Button btn_jobless;
+        private System.Windows.Forms.Button button1;
     }
 }

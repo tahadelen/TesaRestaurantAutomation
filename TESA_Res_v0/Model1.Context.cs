@@ -40,5 +40,10 @@ namespace TESA_Res_v0
         public DbSet<CategoryTable> CategoryTable { get; set; }
         public DbSet<FloorTable> FloorTable { get; set; }
         public DbSet<TableTable> TableTable { get; set; }
+        public DbSet<CallerIdCustomer> CallerIdCustomer { get; set; }
+        public DbSet<CompanyTable> CompanyTable { get; set; }
+        public DbSet<CustomerTable> CustomerTable { get; set; }
+        public DbSet<Product_Categories_Table> Product_Categories_Table { get; set; }
+        public DbSet<Product_Product> Product_Product { get; set; }
     }
 }

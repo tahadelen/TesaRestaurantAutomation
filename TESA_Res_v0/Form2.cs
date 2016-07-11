@@ -84,5 +84,26 @@ namespace TESA_Res_v0
             form_stock.Show();
             this.Close();
         }
+
+        private void btn_takeaway_service_Click(object sender, EventArgs e)
+        {
+            Form package_service = new Paket_Servis_Opsiyon();
+            package_service.Show();
+            this.Close();
+        }
+
+        private void btn_cashreg_Click(object sender, EventArgs e)
+        {
+            Form kasa_giris = new Form_Kasa_Giris();
+            kasa_giris.Show();
+            this.Close();
+        }
+
+        private void musterilerClicked(object sender, EventArgs e)
+        {
+            Form musteriler = new Musteriler();
+            musteriler.Show();
+            this.Close();
+        }
     }
 }

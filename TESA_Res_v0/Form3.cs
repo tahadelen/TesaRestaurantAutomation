@@ -154,9 +154,7 @@ namespace TESA_Res_v0
 
             if (pageNumber > -1)
             {
-                listTableNames = query.Skip(numberOfObjectsPerPage * pageNumber)
-                                    .Take(numberOfObjectsPerPage)
-                        .ToList();
+                listTableNames = query.Skip(numberOfObjectsPerPage * pageNumber).Take(numberOfObjectsPerPage).ToList();
             }else
             {
                 listTableNames = query.ToList();
@@ -230,6 +228,11 @@ namespace TESA_Res_v0
             CommonVars.Instance.Username = "";
             form_login.Show();
             this.Close();
+        }
+
+        private void gb_tables_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
